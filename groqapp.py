@@ -37,7 +37,7 @@ st.markdown(
     [data-testid="stMainBlockContainer"] {
         width: 72%;
         max-width: 760px;
-        padding: 3.5rem 0 7rem;
+        padding: 3.5rem 0 2rem;
     }
 
     h1 {
@@ -115,10 +115,13 @@ st.markdown(
     }
 
     [data-testid="stChatInput"] {
+        position: static !important;
+        width: 100%;
         background: #191c24;
         border: 1px solid #8f3d4b;
         border-radius: 0.35rem;
         box-shadow: none;
+        margin: 1.25rem 0 0;
     }
 
     [data-testid="stChatInput"] textarea {
