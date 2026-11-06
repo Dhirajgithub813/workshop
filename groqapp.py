@@ -1,4 +1,3 @@
-
 import os
 import streamlit as st
 from groq import Groq
@@ -17,6 +16,122 @@ st.set_page_config(
     page_title="Health Assistant - Groq",
     page_icon="🩺",
     layout="centered"
+)
+
+st.markdown(
+    """
+    <style>
+    :root {
+        color-scheme: dark;
+    }
+
+    [data-testid="stAppViewContainer"],
+    [data-testid="stHeader"] {
+        background: #0d1016;
+    }
+
+    [data-testid="stHeader"] {
+        display: none;
+    }
+
+    [data-testid="stMainBlockContainer"] {
+        width: 72%;
+        max-width: 760px;
+        padding: 3.5rem 0 7rem;
+    }
+
+    h1 {
+        margin: 0;
+        color: #f4f4f5;
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        letter-spacing: -0.04em;
+    }
+
+    [data-testid="stCaptionContainer"] {
+        color: #8d929c;
+        font-size: 0.72rem;
+        margin-top: 0.35rem;
+    }
+
+    [data-testid="stAlert"] {
+        background: #102b4c;
+        border: 0;
+        border-radius: 0.35rem;
+        color: #55a7ff;
+        margin: 0.65rem 0 0.45rem;
+        padding: 0.65rem 0.75rem;
+    }
+
+    [data-testid="stAlert"] svg {
+        display: none;
+    }
+
+    .stButton {
+        margin: 0.15rem 0 0.55rem;
+    }
+
+    .stButton > button {
+        background: transparent;
+        border: 1px solid #30343c;
+        border-radius: 0.35rem;
+        color: #e4e4e7;
+        font-size: 0.7rem;
+        min-height: 1.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .stButton > button:hover {
+        border-color: #9c3d4d;
+        color: #ffffff;
+    }
+
+    [data-testid="stChatMessage"] {
+        align-items: flex-start;
+        background: #191c24;
+        border-radius: 0.35rem;
+        margin: 0.4rem 0;
+        padding: 0.55rem 0.65rem;
+    }
+
+    [data-testid="stChatMessage"] [data-testid="stChatMessageAvatar"] {
+        background: #ff2d3f;
+        border-radius: 0.35rem;
+        color: #ffffff;
+        height: 1.25rem;
+        margin-right: 0.45rem;
+        width: 1.25rem;
+    }
+
+    [data-testid="stChatMessage"] [data-testid="stChatMessageAvatar"] svg {
+        height: 0.8rem;
+        width: 0.8rem;
+    }
+
+    [data-testid="stChatMessage"] p {
+        color: #e4e4e7;
+        font-size: 0.72rem;
+        line-height: 1.45;
+        margin: 0;
+    }
+
+    [data-testid="stChatInput"] {
+        background: #191c24;
+        border: 1px solid #8f3d4b;
+        border-radius: 0.35rem;
+        box-shadow: none;
+    }
+
+    [data-testid="stChatInput"] textarea {
+        color: #e4e4e7;
+        font-size: 0.72rem;
+    }
+
+    [data-testid="stChatInput"] textarea::placeholder {
+        color: #8d929c;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
 
 # --------------------------------------------------
@@ -166,5 +281,4 @@ if user_input:
                 "connection, quota, and model availability."
             )
 
-            # Show details to help debug the problem
             st.exception(e)
